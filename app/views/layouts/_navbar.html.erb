@@ -1,0 +1,9 @@
+<div style="border-bottom: 1px solid red">
+	<% if user_signed_in? %>
+	  <%= image_tag(current_user.image, size: '20x20', style:'border-radius:3px;vertical-align:top;') if current_user.image %>
+		<%= current_user.name %>
+		<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+	<% else %>
+		<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+	<% end %>
+</div>
