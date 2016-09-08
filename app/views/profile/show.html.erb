@@ -1,0 +1,12 @@
+<%= @user.name %>
+<h3>Posts</h3>
+<% @user.posts.each do |post| %>
+	<%= link_to post.content, post_path(post) %><br>
+<% end %>
+<br>
+<h3>Comments</h3>
+<% @user.comments.each do |comment| %>
+	글 내용 : <%= link_to comment.post.content, post_path(comment.post) %><br>
+	댓글 : <%= comment.content %>
+	<hr>
+<% end %>
