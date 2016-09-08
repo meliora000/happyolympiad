@@ -3,13 +3,45 @@
   <head>
     <title>Betterlog</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  	<%= render 'layouts/navbar' %>
-    <%= yield %>
+  <header>
+    <nav class="top-nav teal">
+        <div class="nav-wrapper">
+          <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a>
+          <a href="/posts" class="brand-logo right">Better life Better Log</a>
+        </div>
+    </nav>
+    <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(-100%);">
+      <% if user_signed_in? %>
+          <li><div class="userView teal darken-2">
+            <!--<%= image_tag("image_card.jpg", class:"background",style: 'height:100%;width:100%;') %>-->
+            <%= image_tag(current_user.image, size: '50x50', class:"circle") if current_user.image %>
+            <a href="#!name"><span class="white-text name"><%= current_user.name %></span></a>
+            <%= link_to 'logout', destroy_user_session_path, method: :delete,:class => "white-text" %>
+          </div></li>
+      <% else %>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+      <% end %>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+  </header>
+
+  <main>
+      <div class="row pad-top-30">
+        <div class="col s12 m12 l12 offset-l3">
+          <%= yield %>
+        </div>
+      </div>
+  </main>
+
   </body>
 </html>

@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require materialize/dist/js/materialize
 //= require_tree .
+
+
+$(document).ready(function(){
+    $(".button-collapse").sideNav();
+    $('.chips-initial').material_chip('data');
+    $('.chips-initial').material_chip('options');
+})
