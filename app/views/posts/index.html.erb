@@ -1,0 +1,10 @@
+<% @posts.each do |post| %>
+	<%= link_to post_path(post) do %>
+		<div>
+		<strong><%= post.user.name %></strong><br>
+		<%= post.content %>
+		</div>
+	<% end %>
+	<hr>
+<% end %>
+<%= link_to 'New post', new_post_path %>
