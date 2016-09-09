@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
+  get 'users/show'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :posts do
     resources :comments
   end
+
+  resources :users
 
   get '/profile/:user_id' => 'profile#show'
 

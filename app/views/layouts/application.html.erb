@@ -13,24 +13,26 @@
     <nav class="top-nav teal">
         <div class="nav-wrapper">
           <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a>
-          <a href="/posts" class="brand-logo right">Better life Better Log</a>
+          <a href="/posts" class="brand-logo right"><%= image_tag("logo.png") %></a>
         </div>
     </nav>
     <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(-100%);">
       <% if user_signed_in? %>
           <li><div class="userView teal darken-2">
+            <a href="/users/<%= current_user.id %>">
             <!--<%= image_tag("image_card.jpg", class:"background",style: 'height:100%;width:100%;') %>-->
             <%= image_tag(current_user.image, size: '50x50', class:"circle") if current_user.image %>
-            <a href="#!name"><span class="white-text name"><%= current_user.name %></span></a>
+            <span class="white-text name"><%= current_user.name %></span>
+            </a>
             <%= link_to 'logout', destroy_user_session_path, method: :delete,:class => "white-text" %>
           </div></li>
       <% else %>
           <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
       <% end %>
-      <li><a href="#!" class="collection-item">Notification<span class="new badge">3</span></a></li>
-      <li><a href="#!">Jiyeon comment on you</a></li>
-      <li><a href="#!">Jiyeon send email to you</a></li>
-      <li><a>please push Today daily log</a></li>
+      <!--<li><a href="#!" class="collection-item">Notification<span class="new badge">3</span></a></li>-->
+      <!--<li><a href="#!">Jiyeon comment on you</a></li>-->
+      <!--<li><a href="#!">Jiyeon send email to you</a></li>-->
+      <!--<li><a>please push Today daily log</a></li>-->
     </ul>
   </header>
 
@@ -41,6 +43,18 @@
         </div>
       </div>
   </main>
+
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large teal" href="/posts/new">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
 
   </body>
 </html>
