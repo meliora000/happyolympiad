@@ -21,16 +21,21 @@
 
 
         <div class="card-action">
-          <i class="small white-text material-icons">comment</i>
+          <i class="small white-text material-icons comment-button">comment</i>
           <i class="small white-text material-icons">email</i>
+          <div class="side-box">
+            <%= render post.comments %>
+          </div>
         </div>
       </div>
     </div>
 
 
+
+
 <% end %>
 
-
+<!--create button-->
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
   <a class="btn-floating btn-large teal" href="/posts/new">
     <i class="large material-icons">mode_edit</i>

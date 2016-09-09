@@ -20,4 +20,9 @@ $(document).ready(function(){
     $(".button-collapse").sideNav();
     $('.chips-initial').material_chip('data');
     $('.chips-initial').material_chip('options');
+
+    $(".comment-button").click(function(){
+        $(".side-box").hide();
+        $(this).parent().find($(".side-box")).fadeIn(1000)
+    })
 })

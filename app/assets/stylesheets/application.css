@@ -20,8 +20,22 @@
     padding-top: 30px;
 }
 
+/* vh http://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window */
+.side-box{
+    width:350px;
+    height: 100vh;
+    background-color: white;
+    position:fixed;
+    top: 0px;
+    right: 0px;
+    display: none;
+}
 
-@media only screen and (min-width: 601px){
+
+@media only screen and (max-width: 601px){
+    .side-box{
+        width:85%
+    }
     .container {
         width: 85%;
     }
